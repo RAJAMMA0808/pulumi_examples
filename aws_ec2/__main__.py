@@ -11,7 +11,7 @@ security_group = ec2.SecurityGroup('my-security-group',
 # Create a new EC2 instance
 instance = ec2.Instance('my-instance',
     instance_type='t2.micro',
-    ami='ami-04b4f1a9cf54c11d0',
+    ami='ami-08b5b3a93ed654d19',
     security_groups=[security_group.name])
 
 pulumi.export('instance_id', instance.id)
