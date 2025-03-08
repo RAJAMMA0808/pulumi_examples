@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./aws_ec2
+        working-directory: ./ubuntu
     
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
     
     - name: Login to S3 for state management
       run: |
-        pulumi login s3://pulumi-state-saturnhead
+        pulumi login s3://pulumi-state-saturnhead123
     
     - name: Select or Create Pulumi Stack
       run: pulumi stack init ${PULUMI_STACK} --secrets-provider="awskms://${{ env.AWS_KMS_KEY_ID }}"
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./aws_ec2
+        working-directory: ./ubuntu
     environment: production
     steps:
     - uses: actions/checkout@v2
@@ -65,7 +65,7 @@ jobs:
 
     - name: Login to S3 for state management
       run: |
-        pulumi login s3://pulumi-state-saturnhead
+        pulumi login s3://pulumi-state-saturnhead123
 
     - name: Select Pulumi Stack
       run: pulumi stack select ${PULUMI_STACK} --secrets-provider="awskms://${{ env.AWS_KMS_KEY_ID }}"
